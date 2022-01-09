@@ -1,26 +1,38 @@
-import React from "react";
-import logo from "../../logo.svg";
-import "./App.css";
+import React, { useState } from "react";
+import BlogPost from "../BlogPost/index.js";
+//import Button from "../Button/index.js";
+import List from "../List/index.js";
 
 function App() {
+  const [input, setInput] = useState("");
+
+  function handleChange(event) {
+    setInput(event.target.value);
+  }
+  function addBlog(text) {
+    setInput([...input, text]);
+  }
+  function removeBlog(index) {
+    setInput([...removeBlog.slice(0, index), ...removeBlog.slice(index + 1)]);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1> Austyn's Blog </h1>
+      <BlogPost
+        onSubmit={addBlog}
+        // titleText={title}
+        //author={author}
+        //  date={datePosted}
+        value={input}
+        onChange={handleChange}
+        type="text"
+        //  image={image}
+        //  alt={imageAltText}
+      />
+      <List type ="text" value={input} onDelete={removeBlog} onChange={handleChange}/>
     </div>
   );
-}
+}   
 
 export default App;
