@@ -2,7 +2,23 @@ import React, { useState } from "react";
 import BlogPost from "../BlogPost/index.js";
 //import Button from "../Button/index.js";
 import List from "../List/index.js";
-import blogItems from "../BlogPost/index.js";
+
+export const blogItems = {
+  title: "My First Post",
+  author: "Chris Meah",
+  datePosted: "20/11/2019",
+  text: `
+      A structure used in most apps and games.
+      It's a way to keep doing the same.
+      While a condition is true,
+      Or for one to twenty-two.
+      If endless, for errors we blame
+      ..........
+      Loop `,
+  image:
+    "https://images.pexels.com/photos/1181472/pexels-photo-1181472.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+  alt: "A couple of coders.",
+};
 
 function App() {
   const [input, setInput] = useState("");
@@ -23,14 +39,14 @@ function App() {
       <BlogPost
         value={input}
         onSubmit={addBlog}
-        // titleText={title}
-        //author={author}
-        //  date={datePosted}
-
+        titleText={blogItems.title}
+        author={blogItems.author}
+        date={blogItems.datePosted}
+        text={blogItems.text}
         onChange={handleChange}
         type="text"
-        //  image={image}
-        //  alt={imageAltText}
+        image={blogItems.image}
+        alt={blogItems.alt}
       />
 
       <h2 id="Blog Display">Your Blog here.</h2>
