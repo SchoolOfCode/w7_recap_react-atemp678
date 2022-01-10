@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import BlogPost from "../BlogPost/index.js";
 //import Button from "../Button/index.js";
 import List from "../List/index.js";
+import blogItems from "../BlogPost/index.js";
 
 function App() {
   const [input, setInput] = useState("");
@@ -20,19 +21,21 @@ function App() {
     <div className="App">
       <h1> Austyn's Blog </h1>
       <BlogPost
+        value={input}
         onSubmit={addBlog}
         // titleText={title}
         //author={author}
         //  date={datePosted}
-        value={input}
+
         onChange={handleChange}
         type="text"
         //  image={image}
         //  alt={imageAltText}
       />
-      <List type ="text" value={input} onDelete={removeBlog} onChange={handleChange}/>
+
+      <h2 id="Blog Display">Your Blog here.</h2>
     </div>
   );
-}   
+}
 
 export default App;
