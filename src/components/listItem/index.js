@@ -1,6 +1,6 @@
 import React from "react";
 
-function ListItem(text, onDelete) {
+function ListItem({ text, onDelete }) {
   return (
     <li>
       {text}

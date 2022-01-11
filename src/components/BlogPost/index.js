@@ -7,18 +7,26 @@ function BlogPost({
   datePosted,
   image,
   key,
-  onSubmit,
-  onChange,
+  onCommentSubmit,
+  valueForBlog,
+  valueForComments,
+  commentHandleChange,
 }) {
   return (
     <div key={key}>
-      <input onChange={onChange} />
+      <input onChange={commentHandleChange} value={valueForComments} />
+      <button onClick={onCommentSubmit} id="commentButton">
+        Add Comment
+      </button>
       <h1>{title}</h1>
       <h2>{author}</h2>
       <p>{text}</p>
       <h3>{datePosted}</h3>
-      <h4>{image}</h4>
-      <button onClick={onSubmit}> {onChange}Add BlogPost</button>
+      <img src={image} alt="blog" />
+      <button onClick={onCommentSubmit} id="addBlogPost">
+        Add BlogPost
+      </button>
+      <input onChange={valueForBlog} />
     </div>
   );
 }
